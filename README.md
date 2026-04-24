@@ -15,5 +15,5 @@ External API Poll 10 times, deal with duplicate instances, calculate points and 
 2. Compile: javac QuizManagerTable.Java
 3. Run: java Quiz Leaderboard
 
-## Registration
+## Registration number
 RA2311050010018
