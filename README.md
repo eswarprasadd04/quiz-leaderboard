@@ -1,19 +1,36 @@
 # Quizleaderboard system
 
 ## Problem
-External API Poll 10 times, deal with duplicate instances, calculate points and set up leaderboards.
+
+Build an application that checks the external Q&A API 10 times, processes the replay responses, collects scores tailored to players, and generates accurate leaderboards
 
 ## How it works
-- Polls /quiz/message 10 times with a five second delay between each
-- Duplicate events using roundId + player as a separate key
-- Overall point-by-point rankings by participants
-- Sorts the leaderboard by total score
-- Final leaderboard is submitted once in /quiz/set up
+
+1. Checks `GET /query/message` 10 instances (check zero–9) with mandatory five-2d breaks between each request
+2. API collects all event data from responses
+Three of them. Duplicate events using `roundId + participant` as composite key
+4. Cumulative overall rankings for each player
+Five. Sorts the leaderboard in descending order by overall rating
+6. Calculates the composite joint score across all members
+7. Submits the final leaderboard once through `POST /quiz/submit-------------the ballot =<zero-nine>` options for a particular vote
+submit` The very last
+
+## Double Handling
+
+Similar opportunity data appear on several choices. To avoid inflated ratings, each occasion is uniquely verified using `roundId + player`. If a duplicate is found, it is dropped.
 
 ## How to run
-1. Make sure Java is mounted
-2. Compile: javac QuizManagerTable.Java
-3. Run: java Quiz Leaderboard
 
-## Registration number
+1. Make sure Java is installed (JDK eleven+).
+2. Assembly:
+   Runs
+   javac QuizManagerTable.java
+   ```
+3. Run:
+   Runs
+   java Quiz Table
+   ```
+
+## Registration Number
+
 RA2311050010018
