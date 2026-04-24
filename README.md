@@ -1,26 +1,22 @@
 # Quiz Leaderboard
 
-## What this does
+Made this for the Bajaj Finserv Health qualifier task. Its a Java program that hits the quiz API, collects scores and builds a leaderboard.
 
-This is a Java program that polls a quiz API 10 times, removes duplicate entries, adds up scores for each participant, and submits the final leaderboard.
+## Basically what it does
 
-## How it works
+- Hits the /quiz/messages endpoint 10 times (poll 0 to 9)
+- 5 sec gap between each call
+- Lots of duplicate data comes in the responses so i filter those out using roundId + participant combo
+- Then just add up all the scores per person
+- Sort by highest score and submit to /quiz/submit
 
-- Calls `GET /quiz/messages` with poll values from 0 to 9
-- Waits 5 seconds between each poll (as required)
-- Some events repeat across polls, so I used `roundId + participant` as a key to skip duplicates
-- After collecting everything, scores are totalled per participant
-- Leaderboard is sorted highest score first
-- Submitted once to `POST /quiz/submit`
+## To run
 
-## Running it
+Need Java 11+
 
-You need Java 11 or above.
+    javac QuizLeaderboard.java
+    java QuizLeaderboard
 
-```bash
-javac QuizLeaderboard.java
-java QuizLeaderboard
+## Reg No
 
-
-##Registration No
 RA2311050010018
